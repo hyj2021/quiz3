@@ -1,5 +1,4 @@
-﻿; 没有处理括号
-(define pi '(+ (/ (/ (/ a b) e) b)
+﻿(define pi '(+ (/ (/ (/ a b) e) b)
 			   (/ 1
 				  (+ 3
 					 (/ 4
@@ -93,7 +92,6 @@
 				(tree-h (cadr tree))
 				(max (count-up (cadr tree)) (count-up (caddr tree)))))))
 
-;重新构造表达式，每个节点添加绘制这个表达式需要的宽和高
 (define (build-tree x)
   (cond ((null? x) '())
 		((not (pair? x)) (if (number? x) 
@@ -160,7 +158,6 @@
 			(set-paint p y x #\-)
 			(line p (+ x 1) y (- len 1))))))
 
-;根据包含宽高信息的树进行绘制，x、y为绘制原点
 (define (draw bg tree x y)
   (begin
 	(cond ((null? tree) '())
