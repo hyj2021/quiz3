@@ -92,6 +92,7 @@
 				(tree-h (cadr tree))
 				(max (count-up (cadr tree)) (count-up (caddr tree)))))))
 
+;将表达式重新构造成树，每个节点包含绘制这个表达式需要的宽和高信息
 (define (build-tree x)
   (cond ((null? x) '())
 		((not (pair? x)) (if (number? x) 
@@ -157,7 +158,7 @@
 	(else (begin
 			(set-paint p y x #\-)
 			(line p (+ x 1) y (- len 1))))))
-
+; 根据构造的树绘制的表达式
 (define (draw bg tree x y)
   (begin
 	(cond ((null? tree) '())
